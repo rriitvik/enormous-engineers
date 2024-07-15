@@ -1,6 +1,7 @@
 import React,{ useState } from 'react'
 import SectionWrapper from './SectionWrapper'
 import { WORKOUTS,SCHEMES } from '../utils/swoldier'
+import Button from './Button'
 function Header(props){
   const {index,title,description} = props
   return (
@@ -13,12 +14,10 @@ function Header(props){
     </div>
   )
 }
-export default function Generator() {
+export default function Generator(props) {
+  const {poison,setPoison,goal,setGoal,muscles,setMuscles,updateWorkout} = props
   const [showModel,setShowModel]=useState(false)
-  const[poison,setPoison]=useState('individual')
-  const [targets,setTargets]=useState([])
-  const [goal,setGoal]=useState('strength_power')
-  const [muscles, setMuscles] = useState([]); 
+
   function toggleModel(){
     setShowModel(!showModel)
   }
@@ -42,7 +41,7 @@ export default function Generator() {
   }
 }
   return (
-    <SectionWrapper header={"optimize your workout"} title={['Engineers\'','Rush Hour']}>
+    <SectionWrapper id={'generate'}header={"optimize your workout"} title={['Fitness','code','surge']}>
       <Header index={'01'} title={'Pick your poison'} description={"Select the workout you wish to enjoy"}/>
       <div className='grid grid-cols-2 sm:grid-cols-4 gap-4'>
       {Object.keys(WORKOUTS).map((type,typeIndex)=>{
@@ -86,7 +85,7 @@ export default function Generator() {
         return (
           <button onClick={()=>{
             setGoal(scheme)
-          }} className={'bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 px-4 py-1 rounded-lg ' +(scheme===goal?' border-blue-600 rounded-lg':'border-blue-400 rounded-lg')} key={schemeIndex}>
+          }} className={'bg-slate-950 border border-blue-400 duration-200 hover:border-blue-600 px-4 py-3 rounded-lg ' +(scheme===goal?' border-blue-600 rounded-lg':'border-blue-400 rounded-lg')} key={schemeIndex}>
             <p className='capitalize'>
               {scheme.replace('_',' ')}
             </p>
@@ -94,6 +93,8 @@ export default function Generator() {
         )
       })}
       </div>
+      <Button func={updateWorkout} text={"Formulate"}></Button>
     </SectionWrapper>
+
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Button from './Button'
 export default function Hero() {
   return (
     <div className='min-h-screen flex flex-col gap-10 items-center justify-center text-center max-w-[800px] w-full mx-auto p-4'>
@@ -12,9 +12,9 @@ export default function Hero() {
       <p className='text-sm md:text-base font-light '>
       I hereby acknowledge my journey to engineer an <span className='text-blue-400 font-medium'> enormously big</span> and <span className='text-blue-400 font-medium'>mass-monstrous physique</span>, where science meets strength, and innovation shapes muscle. Join us at <span className='text-blue-400 font-medium'>EnormousEngineers</span> where engineers sculpt their bodies with precision and power!
       </p>
-      <button className='px-8 py-4 rounded-md border-[2px] bg-slate-950 border-blue-400 border-solid blue blueShadow duration-200'>
-        <p>Accept & Begin</p>
-      </button>
+      <Button func={()=>{
+        window.location.href ='#generate'
+      }} text={"Accept & Begin"}></Button>
     </div>
   )
 }
