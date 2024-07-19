@@ -33,7 +33,8 @@ export default function ExerciseCard(props) {
                 })}
             </div>
 
-            <div className='grid grid-cols-2 sm:grid-cols-4 sm:place-items-center gap-2'>
+            <div className='grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 md:place-items-center lg:gric-cols-4
+            lg:place-items-center sm:place-items-center gap-2'>
                 {['reps', 'rest', 'tempo'].map(info => {
                     return (
                         <div key={info} className='flex flex-col p-2 rounded border-[1.5px] border-solid border-slate-900 w-full'>
